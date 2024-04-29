@@ -1,0 +1,222 @@
+/* inter-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./fonts/inter-v13-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* inter-600 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('./fonts/inter-v13-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+  /* inter-700 - latin */
+  @font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./fonts/inter-v13-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+:root{
+    --gray-light: #777B85;
+
+    --fw-bold: 700;
+
+    --fs-xl: 3.2rem;
+    --fs-regular: 1rem;
+
+    --primary: #5046E5;
+}
+
+@media (min-width: 740px){
+    :root{
+        --fs-xl: 4.9rem;
+        --fs-regular: 1.5rem
+    }
+}
+
+
+body{
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-light);
+    
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 55px
+}
+
+h1{
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-bold);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/*=============================================================
+                        Utils
+=============================================================*/
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.items-center{
+    align-items: center;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+#burger-menu{
+    display: none
+}
+#burger-menu svg{
+    width: 24px;
+    height: 24px;
+}
+
+.btn{
+    padding: 17px 30%;
+    border-radius: 4px;
+    background-color: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+/*=============================================================
+                        HEADER
+=============================================================*/
+.main-header{
+    padding:  16px 32px;
+    justify-content: space-between;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+.main-header__brand, .main-header__social{
+    flex-basis: 30%;
+}
+.main-header__social{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main-header ul{
+    gap: 24px;
+    font-weight: var(--fw-bold);
+}
+
+.main-header__social ul:last-child a{
+    gap: 5px;
+}
+
+/*=============================================================
+                        HERO
+=============================================================*/
+.hero{
+    height: 100vh;
+    background: url('./images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero__content{
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    color: white;
+    padding: 0 16px;
+    align-items: center;
+}
+.hero__content > * {
+    text-align: center;
+}
+
+.hero__content p{
+    line-height: 23.05px
+}
+
+
+/*=============================================================
+                        Trending Products
+=============================================================*/
+.products{
+    padding: 0 16px;
+}
+.products-wrapper{
+    display: grid;
+    gap:16px
+}
+
+.product img{
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 18px;
+}
+
+/*=============================================================
+                        media queries
+=============================================================*/
+@media(max-width: 755px){
+    .main-header__nav{
+        display: none;
+    }
+    .main-header__social li:not(:last-child) {
+        display: none;
+    }
+    #burger-menu{
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (min-width: 755px){
+    .hero{
+        height: 75vh;
+    }
+}
+@media (min-width: 768px){
+    .products-wrapper{
+        grid-template-columns: repeat(2, 1fr);
+       }
+       .product img{
+        height: auto;
+       }
+}
+
+@media (min-width: 1024px){
+    .products{
+        max-width: 1024px;
+        margin: auto;
+    }
+   .products-wrapper{
+    grid-template-columns: repeat(4, 1fr);
+   }
+}
